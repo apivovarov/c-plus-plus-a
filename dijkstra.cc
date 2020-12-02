@@ -79,8 +79,8 @@ class Graph {
           m_row.weight = new_w;
           m_row.b = vis_name;
           // update weight in the tree of nodes sorted by weight
-          not_visited_by_w.erase(pair<int, string>(old_w, e.b));
-          not_visited_by_w.insert(pair<int, string>(new_w, e.b));
+          not_visited_by_w.erase({old_w, e.b});
+          not_visited_by_w.insert({new_w, e.b});
         }
       }
       visited.insert(vis_name);
