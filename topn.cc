@@ -43,10 +43,12 @@ int main(int argc, char* argv[]) {
   // scan input dataset
   const auto& t1 = chrono::high_resolution_clock::now();
   for (int v : vv) {
-    q.push(v);
-    // remove the smalest element
-    if (q.size() > N) {
+    if (q.size() < N) {
+      q.push(v);
+    // remove the smalest element and push new one
+    } else if (v > q.top()) {
       q.pop();
+      q.push(v);
     }
   }
 
